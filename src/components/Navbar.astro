@@ -1,0 +1,131 @@
+---
+import { Menu, X, ArrowRight } from "lucide-react";
+
+const navLinks = [
+    { name: "Features", href: "#features" },
+    { name: "How It Works", href: "#how-it-works" },
+    { name: "Testimonials", href: "#testimonials" },
+    { name: "Pricing", href: "#pricing" },
+];
+---
+
+<header class="fixed top-0 left-0 right-0 z-50 px-6 py-4">
+    <nav
+        class="max-w-7xl mx-auto flex items-center justify-between px-6 py-3 glass-card"
+    >
+        <a href="/" class="flex items-center gap-2 group">
+            <div
+                class="w-10 h-10 bg-accent-gradient rounded-xl flex items-center justify-center group-hover:scale-105 transition-transform"
+            >
+                <span class="text-white font-bold text-xl">TF</span>
+            </div>
+            <span class="text-xl font-bold tracking-tight">TaskFlow</span>
+        </a>
+
+        <ul class="hidden md:flex items-center gap-8">
+            {
+                navLinks.map((link) => (
+                    <li>
+                        <a
+                            href={link.href}
+                            class="text-sm font-medium text-muted-slate hover:text-white transition-colors"
+                        >
+                            {link.name}
+                        </a>
+                    </li>
+                ))
+            }
+        </ul>
+
+        <div class="hidden md:flex items-center gap-4">
+            <a
+                href="/login"
+                class="text-sm font-medium hover:text-white transition-colors"
+                >Log in</a
+            >
+            <a
+                href="#pricing"
+                class="btn-primary !px-5 !py-2 text-sm text-center"
+            >
+                Get Started
+            </a>
+        </div>
+
+        <button class="md:hidden text-white" id="mobile-menu-toggle">
+            <Menu className="w-6 h-6" />
+        </button>
+    </nav>
+
+    <!-- Mobile Menu Overlay (Hidden by default) -->
+    <div
+        id="mobile-menu"
+        class="fixed inset-0 bg-primary/95 z-50 translate-x-full transition-transform duration-300 md:hidden"
+    >
+        <div class="p-6 flex flex-col h-full">
+            <div class="flex items-center justify-between mb-12">
+                <a href="/" class="flex items-center gap-2">
+                    <div
+                        class="w-10 h-10 bg-accent-gradient rounded-xl flex items-center justify-center"
+                    >
+                        <span class="text-white font-bold text-xl">TF</span>
+                    </div>
+                    <span class="text-xl font-bold tracking-tight"
+                        >TaskFlow</span
+                    >
+                </a>
+                <button id="mobile-menu-close">
+                    <X className="w-8 h-8" />
+                </button>
+            </div>
+
+            <ul class="flex flex-col gap-6 mb-12">
+                {
+                    navLinks.map((link) => (
+                        <li>
+                            <a
+                                href={link.href}
+                                class="text-2xl font-bold hover:text-accent transition-colors"
+                            >
+                                {link.name}
+                            </a>
+                        </li>
+                    ))
+                }
+            </ul>
+
+            <div class="mt-auto flex flex-col gap-4">
+                <a
+                    href="/login"
+                    class="btn-secondary w-full text-lg text-center">Log in</a
+                >
+                <a
+                    href="#pricing"
+                    class="btn-primary w-full text-lg text-center"
+                    >Get Started</a
+                >
+            </div>
+        </div>
+    </div>
+</header>
+
+<script>
+    const toggle = document.getElementById("mobile-menu-toggle");
+    const close = document.getElementById("mobile-menu-close");
+    const menu = document.getElementById("mobile-menu");
+
+    toggle?.addEventListener("click", () => {
+        menu?.classList.remove("translate-x-full");
+    });
+
+    close?.addEventListener("click", () => {
+        menu?.classList.add("translate-x-full");
+    });
+
+    // Close menu on link click
+    const links = menu?.querySelectorAll("a");
+    links?.forEach((link) => {
+        link.addEventListener("click", () => {
+            menu?.classList.add("translate-x-full");
+        });
+    });
+</script>

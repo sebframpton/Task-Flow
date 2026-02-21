@@ -1,0 +1,58 @@
+---
+interface Props {
+    title: string;
+    subtitle: string;
+    gradient?: boolean;
+}
+
+const { title, subtitle, gradient = true } = Astro.props;
+---
+
+<section
+    class="relative pt-32 pb-20 overflow-hidden border-b border-white/5 bg-white/[0.01]"
+>
+    <!-- Decoration Gradients -->
+    <div
+        class="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[600px] bg-accent/10 blur-[120px] rounded-full -z-10 opacity-30"
+    >
+    </div>
+
+    <div class="max-w-7xl mx-auto px-6 text-center pt-12">
+        <h1
+            class="text-4xl md:text-6xl font-bold mb-6 tracking-tight animate-slide-up"
+        >
+            {
+                gradient ? (
+                    <>
+                        <span class="text-gradient">{title}</span>
+                    </>
+                ) : (
+                    title
+                )
+            }
+        </h1>
+        <p
+            class="text-lg md:text-xl text-muted-slate max-w-2xl mx-auto animate-slide-up [animation-delay:200ms]"
+        >
+            {subtitle}
+        </p>
+    </div>
+</section>
+
+<style>
+    @keyframes slide-up {
+        from {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    .animate-slide-up {
+        opacity: 0;
+        animation: slide-up 0.8s ease-out forwards;
+    }
+</style>

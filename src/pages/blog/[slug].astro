@@ -1,0 +1,260 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Navbar from "../../components/Navbar.astro";
+import Footer from "../../components/Footer.astro";
+import { ArrowLeft, Clock, User, Share2 } from "lucide-react";
+
+export async function getStaticPaths() {
+    const posts = [
+        {
+            slug: "announcing-taskflow-2-0",
+            title: "Announcing TaskFlow 2.0",
+            date: "Feb 15, 2026",
+            category: "Product",
+            author: "Sarah Johnson",
+            authorRole: "Head of Product",
+            readTime: "5 min read",
+            image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=1200",
+            content: `
+                <p class="text-xl text-muted-slate mb-8 leading-relaxed">Today marks a significant milestone in our journey. TaskFlow 2.0 is officially here, and it's more than just an update—it's a complete reimagining of how teams collaborate in the age of AI.</p>
+                
+                <h2 class="text-3xl font-bold mb-6 text-white">The Vision Behind 2.0</h2>
+                <p class="mb-6">When we started building TaskFlow, our goal was simple: reduce the "work about work." We noticed that teams were spending more time updating status, searching for documents, and attending sync meetings than actually creating. With 2.0, we've focused on three core pillars: Intelligence, Integration, and Intuition.</p>
+                
+                <div class="glass-card p-8 my-12 border-l-4 border-l-accent">
+                    <p class="text-lg italic text-white italic">"Productivity isn't about doing more things; it's about doing the right things with less friction. TaskFlow 2.0 is built to be the silent partner that handles the friction for you."</p>
+                </div>
+
+                <h3 class="text-2xl font-bold mb-4 text-white">AI-Powered Insights</h3>
+                <p class="mb-6">TaskFlow Intelligence now scans your workspace to identify potential bottlenecks before they happen. It can suggest resource reallocation, automatically tag tasks, and even draft weekly project summaries for stakeholders.</p>
+                
+                <h3 class="text-2xl font-bold mb-4 text-white">Deep Integrations</h3>
+                <p class="mb-6">We've rebuilt our integration engine from the ground up. Whether you're pulling in code from GitHub, designs from Figma, or data from Salesforce, TaskFlow keeps everything in context so you never have to switch tabs to get the full picture.</p>
+                
+                <h2 class="text-3xl font-bold mb-6 text-white">What's Next?</h2>
+                <p class="mb-6">This is just the beginning. In the coming months, we'll be rolling out even more features focused on personal productivity and deep focus modes. We can't wait to see what you build with TaskFlow 2.0.</p>
+            `,
+        },
+        {
+            slug: "why-minimalist-tools-win",
+            title: "Why Minimalist Tools Win",
+            date: "Jan 28, 2026",
+            category: "Design",
+            author: "Emma Williams",
+            authorRole: "Design Director",
+            readTime: "8 min read",
+            image: "https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?auto=format&fit=crop&q=80&w=1200",
+            content: `
+                <p class="text-xl text-muted-slate mb-8 leading-relaxed">In an era of feature bloat, simplicity has become the ultimate luxury. We explore why minimalist tools are consistently outperforming complex legacy suites in team satisfaction and output.</p>
+                
+                <h2 class="text-3xl font-bold mb-6 text-white">The Cost of Complexity</h2>
+                <p class="mb-6">Every button, menu, and configuration option carries a cognitive load. For teams working on complex problems, the last thing they need is a complex tool to manage their work. Minimalist design isn't about taking things away—it's about removing the distractions that prevent deep work.</p>
+                
+                <h3 class="text-2xl font-bold mb-4 text-white">The Paradox of Choice</h3>
+                <p class="mb-6">When a tool allows you to do everything, you often end up doing nothing. By enforcing a clear, opinionated workflow, minimalist tools like TaskFlow guide users toward the most productive actions.</p>
+                
+                <div class="glass-card p-8 my-12 border-l-4 border-l-purple-500">
+                    <p class="text-lg italic text-white">"Simplicity is the ultimate sophistication. By focusing on the essential, we give users back their most precious resource: attention."</p>
+                </div>
+
+                <h2 class="text-3xl font-bold mb-6 text-white">Designing for the Flow State</h2>
+                <p class="mb-6">Minimalism is the bridge to the flow state. When the interface disappears, the user can inhabit the problem space more fully. This is why we spend months refining a single interaction, ensuring it feels as natural as breathing.</p>
+            `,
+        },
+        {
+            slug: "scaling-your-engineering-team",
+            title: "Scaling Your Engineering Team",
+            date: "Jan 10, 2026",
+            category: "Engineering",
+            author: "Michael Chen",
+            authorRole: "CTO",
+            readTime: "12 min read",
+            image: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80&w=1200",
+            content: `
+                <p class="text-xl text-muted-slate mb-8 leading-relaxed">Growing from 10 to 100 engineers requires more than just hiring—it requires a complete rethink of your communication, code reviews, and deployment cycles.</p>
+                
+                <h2 class="text-3xl font-bold mb-6 text-white">Documentation as Culture</h2>
+                <p class="mb-6">In a small team, knowledge is tribal. In a large team, if it's not written down, it doesn't exist. We've found that the most successful engineering organizations treat documentation not as a chore, but as a core deliverable.</p>
+                
+                <h3 class="text-2xl font-bold mb-4 text-white">The "Pizza Rule" for Teams</h3>
+                <p class="mb-6">As we scaled, we kept our teams small. If a team can't be fed with two large pizzas, it's too big. This ensures every engineer feels ownership and has high visibility into their impact.</p>
+                
+                <div class="glass-card p-8 my-12 border-l-4 border-l-blue-500">
+                    <p class="text-lg italic text-white">"Communication overhead is the silent killer of engineering velocity. Scale your systems, not your meeting invites."</p>
+                </div>
+
+                <h2 class="text-3xl font-bold mb-6 text-white">Automating Quality</h2>
+                <p class="mb-6">You can't hire enough QA engineers to keep up with 100 developers. Quality must be automated into the CI/CD pipeline. Every commit should be its own mini-release, verified by thousands of tests before a human ever looks at it.</p>
+            `,
+        },
+    ];
+
+    return posts.map((post) => ({
+        params: { slug: post.slug },
+        props: { post },
+    }));
+}
+
+const { post } = Astro.props;
+---
+
+<Layout title={post.title} description={post.title}>
+    <Navbar />
+
+    <main class="pt-32 pb-24">
+        <!-- Reading Progress Bar -->
+        <div class="fixed top-0 left-0 w-full h-1 z-[60] bg-white/5">
+            <div
+                id="progress-bar"
+                class="h-full bg-accent w-0 transition-all duration-100 shadow-[0_0_10px_rgba(99,102,241,0.5)]"
+            >
+            </div>
+        </div>
+
+        <article class="max-w-4xl mx-auto px-6">
+            <!-- Back Link -->
+            <a
+                href="/blog"
+                class="inline-flex items-center gap-2 text-muted-slate hover:text-white transition-colors mb-12 group"
+            >
+                <ArrowLeft
+                    className="w-4 h-4 group-hover:-translate-x-1 transition-transform"
+                />
+                Back to Blog
+            </a>
+
+            <!-- Header -->
+            <header class="mb-16">
+                <div class="flex items-center gap-4 mb-6">
+                    <span
+                        class="text-xs font-bold text-accent uppercase tracking-widest px-3 py-1 border border-accent/20 rounded-full"
+                    >
+                        {post.category}
+                    </span>
+                    <div
+                        class="flex items-center gap-2 text-muted-slate text-sm"
+                    >
+                        <Clock className="w-4 h-4" />
+                        {post.readTime}
+                    </div>
+                </div>
+
+                <h1
+                    class="text-4xl md:text-6xl font-bold mb-8 leading-tight text-white"
+                >
+                    {post.title}
+                </h1>
+
+                <div
+                    class="flex items-center justify-between py-8 border-y border-white/5"
+                >
+                    <div class="flex items-center gap-4">
+                        <div
+                            class="w-12 h-12 rounded-full bg-accent-gradient flex items-center justify-center font-bold text-lg"
+                        >
+                            {
+                                post.author
+                                    .split(" ")
+                                    .map((n) => n[0])
+                                    .join("")
+                            }
+                        </div>
+                        <div>
+                            <div class="text-white font-bold">
+                                {post.author}
+                            </div>
+                            <div class="text-muted-slate text-sm">
+                                {post.authorRole} • {post.date}
+                            </div>
+                        </div>
+                    </div>
+                    <button
+                        class="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-white/10 transition-colors text-white"
+                    >
+                        <Share2 className="w-5 h-5" />
+                    </button>
+                </div>
+            </header>
+
+            <!-- Featured Image -->
+            <div
+                class="w-full aspect-video rounded-3xl mb-16 relative overflow-hidden border border-white/5"
+            >
+                <img
+                    src={post.image}
+                    alt={post.title}
+                    class="w-full h-full object-cover"
+                />
+                <div
+                    class="absolute inset-0 bg-gradient-to-t from-[#0A0A0B]/80 via-transparent to-transparent"
+                >
+                </div>
+            </div>
+
+            <!-- Content -->
+            <div
+                class="prose prose-invert prose-lg max-w-none text-muted-slate leading-relaxed"
+            >
+                <div set:html={post.content} />
+            </div>
+
+            <!-- Footer Section -->
+            <footer class="mt-24 pt-12 border-t border-white/5">
+                <div class="glass-card p-8 md:p-12 text-center">
+                    <h2 class="text-2xl font-bold mb-4">
+                        Enjoyed this article?
+                    </h2>
+                    <p class="text-muted-slate mb-8 max-w-lg mx-auto">
+                        Subscribe to our newsletter to receive the latest
+                        updates, articles, and productivity tips directly in
+                        your inbox.
+                    </p>
+                    <div
+                        class="flex flex-col sm:flex-row gap-4 max-w-md mx-auto"
+                    >
+                        <input
+                            type="email"
+                            placeholder="your@email.com"
+                            class="flex-grow px-6 py-3 bg-white/5 border border-white/10 rounded-xl focus:outline-none focus:ring-2 focus:ring-accent/50 focus:border-accent transition-all text-white"
+                        />
+                        <button class="btn-primary whitespace-nowrap"
+                            >Subscribe</button
+                        >
+                    </div>
+                </div>
+            </footer>
+        </article>
+    </main>
+
+    <Footer />
+</Layout>
+
+<script>
+    // Progress Bar Logic
+    window.addEventListener("scroll", () => {
+        const progressBar = document.getElementById("progress-bar");
+        if (progressBar) {
+            const winScroll =
+                document.body.scrollTop || document.documentElement.scrollTop;
+            const height =
+                document.documentElement.scrollHeight -
+                document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            progressBar.style.width = scrolled + "%";
+        }
+    });
+</script>
+
+<style is:global>
+    .prose h2 {
+        margin-top: 2rem;
+        color: white;
+    }
+    .prose h3 {
+        margin-top: 1.5rem;
+        color: white;
+    }
+    .prose p {
+        margin-bottom: 1.5rem;
+    }
+</style>

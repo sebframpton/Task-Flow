@@ -1,0 +1,107 @@
+---
+import { ArrowRight } from "lucide-react";
+import ProductDemo from "./ProductDemo.astro";
+---
+
+<section class="relative pt-32 pb-20 overflow-hidden">
+    <!-- Decoration Gradients -->
+    <div
+        class="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[600px] bg-accent/20 blur-[120px] rounded-full -z-10 opacity-50"
+    >
+    </div>
+    <div
+        class="absolute -top-40 -right-40 w-[600px] h-[600px] bg-purple-500/10 blur-[100px] rounded-full -z-10"
+    >
+    </div>
+
+    <div class="max-w-7xl mx-auto px-6 text-center">
+        <div
+            class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-xs font-medium text-accent mb-8 animate-fade-in"
+        >
+            <span class="flex h-2 w-2 rounded-full bg-accent"></span>
+            New: Team Analytics 2.0 is out
+        </div>
+
+        <h1
+            class="text-5xl md:text-7xl font-bold mb-6 leading-[1.1] tracking-tight animate-slide-up"
+        >
+            Streamline Your Workflow <br />
+            <span class="text-gradient">With Intelligent Sync</span>
+        </h1>
+
+        <p
+            class="text-lg md:text-xl text-muted-slate max-w-2xl mx-auto mb-10 animate-slide-up [animation-delay:200ms]"
+        >
+            The all-in-one platform to manage your projects, track team
+            performance, and automate tedious tasks. Get started for free today.
+        </p>
+
+        <div
+            class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-20 animate-slide-up [animation-delay:400ms]"
+        >
+            <a
+                href="#pricing"
+                class="btn-primary flex items-center gap-2 group"
+            >
+                Get Started Free
+                <ArrowRight
+                    className="w-4 h-4 group-hover:translate-x-1 transition-transform"
+                />
+            </a>
+        </div>
+
+        <!-- Hero Image/Mockup -->
+        <div class="relative max-w-5xl mx-auto animate-float">
+            <div
+                class="absolute -inset-1 bg-accent-gradient blur opacity-25 rounded-2xl"
+            >
+            </div>
+            <ProductDemo />
+        </div>
+    </div>
+</section>
+
+<style>
+    @keyframes fade-in {
+        from {
+            opacity: 0;
+        }
+        to {
+            opacity: 1;
+        }
+    }
+
+    @keyframes slide-up {
+        from {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    @keyframes float {
+        0%,
+        100% {
+            transform: translateY(0);
+        }
+        50% {
+            transform: translateY(-10px);
+        }
+    }
+
+    .animate-fade-in {
+        animation: fade-in 1s ease-out forwards;
+    }
+
+    .animate-slide-up {
+        opacity: 0;
+        animation: slide-up 0.8s ease-out forwards;
+    }
+
+    .animate-float {
+        animation: float 6s ease-in-out infinite;
+    }
+</style>

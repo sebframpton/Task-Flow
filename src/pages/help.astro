@@ -1,0 +1,74 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Navbar from "../components/Navbar.astro";
+import Footer from "../components/Footer.astro";
+import SubpageHero from "../components/SubpageHero.astro";
+import { HelpCircle, MessageCircle, FileQuestion } from "lucide-react";
+---
+
+<Layout
+    title="Help Center"
+    description="Get help with TaskFlow from our support team and community."
+>
+    <Navbar />
+    <main>
+        <SubpageHero
+            title="How can we help?"
+            subtitle="Find answers, talk to our support team, or explore our knowledge base."
+        />
+
+        <section class="py-24">
+            <div class="max-w-5xl mx-auto px-6">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-20">
+                    <div class="glass-card p-8 text-center">
+                        <div
+                            class="w-16 h-16 bg-accent/10 rounded-full flex items-center justify-center mx-auto mb-6"
+                        >
+                            <HelpCircle className="w-8 h-8 text-accent" />
+                        </div>
+                        <h3 class="font-bold mb-2">FAQs</h3>
+                        <p class="text-sm text-muted-slate mb-6">
+                            Quick answers to common questions.
+                        </p>
+                        <a
+                            href="/faq"
+                            class="text-accent text-sm font-bold hover:underline"
+                            >Read FAQs</a
+                        >
+                    </div>
+                    <div class="glass-card p-8 text-center">
+                        <div
+                            class="w-16 h-16 bg-accent/10 rounded-full flex items-center justify-center mx-auto mb-6"
+                        >
+                            <MessageCircle className="w-8 h-8 text-accent" />
+                        </div>
+                        <h3 class="font-bold mb-2">Live Chat</h3>
+                        <p class="text-sm text-muted-slate mb-6">
+                            Talk to a human right now.
+                        </p>
+                        <button
+                            class="text-accent text-sm font-bold hover:underline"
+                            >Start Chat</button
+                        >
+                    </div>
+                    <div class="glass-card p-8 text-center">
+                        <div
+                            class="w-16 h-16 bg-accent/10 rounded-full flex items-center justify-center mx-auto mb-6"
+                        >
+                            <FileQuestion className="w-8 h-8 text-accent" />
+                        </div>
+                        <h3 class="font-bold mb-2">Tickets</h3>
+                        <p class="text-sm text-muted-slate mb-6">
+                            Open a case for complex issues.
+                        </p>
+                        <button
+                            class="text-accent text-sm font-bold hover:underline"
+                            >Open Ticket</button
+                        >
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <Footer />
+</Layout>

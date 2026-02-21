@@ -1,0 +1,77 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Navbar from "../components/Navbar.astro";
+import Footer from "../components/Footer.astro";
+import SubpageHero from "../components/SubpageHero.astro";
+---
+
+<Layout
+    title="Privacy Policy"
+    description="How TaskFlow handles and protects your data."
+>
+    <Navbar />
+    <main>
+        <SubpageHero
+            title="Privacy Policy"
+            subtitle="Last updated: February 21, 2026"
+        />
+
+        <section class="py-24">
+            <div class="max-w-3xl mx-auto px-6">
+                <div
+                    class="prose prose-invert prose-slate max-w-none text-muted-slate"
+                >
+                    <p class="mb-8">
+                        Your privacy is important to us. It is TaskFlow's policy
+                        to respect your privacy regarding any information we may
+                        collect from you across our website, TaskFlow.so, and
+                        other sites we own and operate.
+                    </p>
+
+                    <h2 class="text-2xl font-bold text-white mb-4">
+                        1. Information We Collect
+                    </h2>
+                    <p class="mb-6">
+                        We only ask for personal information when we truly need
+                        it to provide a service to you. We collect it by fair
+                        and lawful means, with your knowledge and consent. We
+                        also let you know why we’re collecting it and how it
+                        will be used.
+                    </p>
+
+                    <h2 class="text-2xl font-bold text-white mb-4">
+                        2. Use of Information
+                    </h2>
+                    <p class="mb-6">
+                        We only retain collected information for as long as
+                        necessary to provide you with your requested service.
+                        What data we store, we’ll protect within commercially
+                        acceptable means to prevent loss and theft, as well as
+                        unauthorized access, disclosure, copying, use or
+                        modification.
+                    </p>
+
+                    <h2 class="text-2xl font-bold text-white mb-4">
+                        3. Data Sharing
+                    </h2>
+                    <p class="mb-6">
+                        We don’t share any personally identifying information
+                        publicly or with third-parties, except when required to
+                        by law.
+                    </p>
+
+                    <h2 class="text-2xl font-bold text-white mb-4">
+                        4. Your Rights
+                    </h2>
+                    <p class="mb-6">
+                        You are free to refuse our request for your personal
+                        information, with the understanding that we may be
+                        unable to provide you with some of your desired
+                        services.
+                    </p>
+                </div>
+            </div>
+        </section>
+    </main>
+    <Footer />
+</Layout>

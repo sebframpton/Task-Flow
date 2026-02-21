@@ -1,0 +1,113 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Navbar from "../components/Navbar.astro";
+import Footer from "../components/Footer.astro";
+import SubpageHero from "../components/SubpageHero.astro";
+
+const posts = [
+    {
+        title: "Announcing TaskFlow 2.0",
+        slug: "announcing-taskflow-2-0",
+        date: "Feb 15, 2026",
+        category: "Product",
+        author: "Sarah Johnson",
+        readTime: "5 min read",
+        image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=800",
+        excerpt:
+            "An entirely new way to manage team projects with AI-powered insights, deep integrations, and a refined interface.",
+    },
+    {
+        title: "Why Minimalist Tools Win",
+        slug: "why-minimalist-tools-win",
+        date: "Jan 28, 2026",
+        category: "Design",
+        author: "Emma Williams",
+        readTime: "8 min read",
+        image: "https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?auto=format&fit=crop&q=80&w=800",
+        excerpt:
+            "How reducing complexity in your digital environment leads to higher output and happier teams.",
+    },
+    {
+        title: "Scaling Your Engineering Team",
+        slug: "scaling-your-engineering-team",
+        date: "Jan 10, 2026",
+        category: "Engineering",
+        author: "Michael Chen",
+        readTime: "12 min read",
+        image: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80&w=800",
+        excerpt:
+            "Best practices for maintaining velocity, culture, and code quality while growing your technical staff.",
+    },
+];
+---
+
+<Layout
+    title="Blog"
+    description="The latest news, tips, and insights from the TaskFlow team."
+>
+    <Navbar />
+    <main>
+        <SubpageHero
+            title="The TaskFlow Blog"
+            subtitle="Insights on productivity, design, and building modern software."
+        />
+
+        <section class="py-24">
+            <div class="max-w-7xl mx-auto px-6">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    {
+                        posts.map((post) => (
+                            <a
+                                href={`/blog/${post.slug}`}
+                                class="glass-card overflow-hidden group hover:border-accent/40 transition-all flex flex-col"
+                            >
+                                <div class="aspect-[16/10] bg-white/5 border-b border-white/5 relative overflow-hidden">
+                                    <img
+                                        src={post.image}
+                                        alt={post.title}
+                                        class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                                    />
+                                    <div class="absolute inset-0 bg-gradient-to-t from-[#0A0A0B] to-transparent opacity-60" />
+                                </div>
+                                <div class="p-8 flex-grow flex flex-col">
+                                    <div class="flex items-center gap-4 mb-4">
+                                        <span class="text-[10px] font-bold text-accent uppercase tracking-widest px-2 py-0.5 border border-accent/20 rounded">
+                                            {post.category}
+                                        </span>
+                                        <span class="text-xs text-muted-slate">
+                                            {post.date}
+                                        </span>
+                                    </div>
+                                    <h3 class="text-xl font-bold mb-4 group-hover:text-accent transition-colors">
+                                        {post.title}
+                                    </h3>
+                                    <p class="text-muted-slate text-sm leading-relaxed mb-6 flex-grow">
+                                        {post.excerpt}
+                                    </p>
+
+                                    <div class="pt-6 border-t border-white/5 flex items-center justify-between">
+                                        <div class="flex items-center gap-2">
+                                            <div class="w-6 h-6 rounded-full bg-accent-gradient flex items-center justify-center text-[10px] font-bold">
+                                                {post.author
+                                                    .split(" ")
+                                                    .map((n) => n[0])
+                                                    .join("")}
+                                            </div>
+                                            <span class="text-xs text-muted-slate">
+                                                {post.author}
+                                            </span>
+                                        </div>
+                                        <span class="text-[10px] text-muted-slate italic">
+                                            {post.readTime}
+                                        </span>
+                                    </div>
+                                </div>
+                            </a>
+                        ))
+                    }
+                </div>
+            </div>
+        </section>
+    </main>
+    <Footer />
+</Layout>

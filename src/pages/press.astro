@@ -1,0 +1,76 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Navbar from "../components/Navbar.astro";
+import Footer from "../components/Footer.astro";
+import SubpageHero from "../components/SubpageHero.astro";
+import { Mail, FileText } from "lucide-react";
+---
+
+<Layout
+    title="Press"
+    description="Media assets and contact information for TaskFlow."
+>
+    <Navbar />
+    <main>
+        <SubpageHero
+            title="Press & Media"
+            subtitle="Everything you need to talk about TaskFlow's impact on productivity."
+        />
+
+        <section class="py-24">
+            <div class="max-w-4xl mx-auto px-6">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
+                    <div class="glass-card p-10">
+                        <Mail className="w-10 h-10 text-accent mb-6" />
+                        <h3 class="text-xl font-bold mb-2">Media Inquiries</h3>
+                        <p class="text-muted-slate mb-6">
+                            Want to interview our founders or need a quote?
+                            Contact our PR team.
+                        </p>
+                        <a
+                            href="mailto:press@taskflow.so"
+                            class="text-accent font-medium hover:underline"
+                            >press@taskflow.so</a
+                        >
+                    </div>
+                    <div class="glass-card p-10">
+                        <FileText className="w-10 h-10 text-accent mb-6" />
+                        <h3 class="text-xl font-bold mb-2">Brand Assets</h3>
+                        <p class="text-muted-slate mb-6">
+                            Download high-resolution logos, screenshots, and
+                            team photos.
+                        </p>
+                        <button class="btn-secondary w-full"
+                            >Download Press Kit</button
+                        >
+                    </div>
+                </div>
+
+                <div class="prose prose-invert max-w-none">
+                    <h2 class="text-2xl font-bold mb-6">Recent Coverage</h2>
+                    <ul class="space-y-6 list-none p-0">
+                        <li class="border-b border-white/5 pb-6">
+                            <p class="text-sm text-muted-slate mb-2">
+                                TechCrunch &bull; Feb 20, 2026
+                            </p>
+                            <h4 class="text-lg font-bold">
+                                "TaskFlow secures $20M Series A to automate
+                                project management"
+                            </h4>
+                        </li>
+                        <li class="border-b border-white/5 pb-6">
+                            <p class="text-sm text-muted-slate mb-2">
+                                Verge &bull; Jan 15, 2026
+                            </p>
+                            <h4 class="text-lg font-bold">
+                                "TaskFlow 2.0: The cleanest design we've seen in
+                                productivity software"
+                            </h4>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </main>
+    <Footer />
+</Layout>

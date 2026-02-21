@@ -1,0 +1,70 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Navbar from "../components/Navbar.astro";
+import Footer from "../components/Footer.astro";
+import SubpageHero from "../components/SubpageHero.astro";
+import { ArrowRight } from "lucide-react";
+
+const positions = [
+    {
+        title: "Senior Product Designer",
+        location: "Remote / London",
+        department: "Design",
+    },
+    {
+        title: "Full Stack Engineer (React/Astro)",
+        location: "Remote / NYC",
+        department: "Engineering",
+    },
+    {
+        title: "Growth Marketing Manager",
+        location: "Remote / SF",
+        department: "Marketing",
+    },
+    {
+        title: "Customer Success Lead",
+        location: "Austin, TX",
+        department: "Operations",
+    },
+];
+---
+
+<Layout
+    title="Careers"
+    description="Join the TaskFlow team and help us build the future of work."
+>
+    <Navbar />
+    <main>
+        <SubpageHero
+            title="Join the TaskFlow Team"
+            subtitle="We're looking for passionate individuals to help us redefine how teams collaborate."
+        />
+
+        <section class="py-24">
+            <div class="max-w-5xl mx-auto px-6">
+                <h2 class="text-3xl font-bold mb-12">Open Positions</h2>
+                <div class="space-y-4">
+                    {
+                        positions.map((p) => (
+                            <div class="glass-card p-8 flex flex-col md:flex-row items-center justify-between gap-6 hover:bg-white/[0.04] transition-colors group">
+                                <div>
+                                    <h3 class="text-xl font-bold mb-1 group-hover:text-accent transition-colors">
+                                        {p.title}
+                                    </h3>
+                                    <p class="text-muted-slate">
+                                        {p.department} &bull; {p.location}
+                                    </p>
+                                </div>
+                                <button class="btn-primary flex items-center gap-2 group/btn whitespace-nowrap">
+                                    Apply Now
+                                    <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
+                                </button>
+                            </div>
+                        ))
+                    }
+                </div>
+            </div>
+        </section>
+    </main>
+    <Footer />
+</Layout>

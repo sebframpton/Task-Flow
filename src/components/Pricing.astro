@@ -1,0 +1,192 @@
+---
+import { Check } from "lucide-react";
+
+const tiers = [
+    {
+        name: "Starter",
+        price: { monthly: "$0", yearly: "$0" },
+        description: "Perfect for individuals and small side projects.",
+        features: [
+            "Up to 3 projects",
+            "Basic analytics",
+            "24h support response",
+            "1GB storage",
+        ],
+        cta: "Get Started",
+        popular: false,
+    },
+    {
+        name: "Pro",
+        price: { monthly: "$29", yearly: "$240" },
+        description: "The best option for growing teams and startups.",
+        features: [
+            "Unlimited projects",
+            "Advanced analytics",
+            "1h support response",
+            "10GB storage",
+            "Team collaboration tools",
+            "Custom integrations",
+        ],
+        cta: "Start Free Trial",
+        popular: true,
+        isTrial: true,
+    },
+    {
+        name: "Enterprise",
+        price: { monthly: "Custom", yearly: "Custom" },
+        description: "Enterprise-grade features for large organizations.",
+        features: [
+            "Unlimited everything",
+            "Dedicated account manager",
+            "99.9% SLA",
+            "On-premise deployment",
+            "SSO & Advanced Security",
+        ],
+        cta: "Contact Sales",
+        popular: false,
+    },
+];
+---
+
+<section id="pricing" class="py-24 relative">
+    <div class="max-w-7xl mx-auto px-6">
+        <div class="text-center max-w-3xl mx-auto mb-16">
+            <h2 class="text-3xl md:text-5xl font-bold mb-6">
+                Simple, <span class="text-gradient">Transparent</span> Pricing
+            </h2>
+            <p class="text-lg text-muted-slate mb-10">
+                Choose the plan that's right for you. No hidden fees, cancel
+                anytime.
+            </p>
+
+            <!-- Toggle (UI only for now) -->
+            <div class="flex items-center justify-center gap-4">
+                <span
+                    class="text-sm font-medium text-white"
+                    id="billing-monthly">Monthly</span
+                >
+                <button
+                    id="billing-toggle"
+                    class="w-12 h-6 rounded-full bg-accent/20 border border-accent/30 relative p-1 transition-colors cursor-pointer group"
+                >
+                    <div
+                        id="billing-thumb"
+                        class="w-4 h-4 rounded-full bg-accent shadow-sm transition-transform duration-300 transform translate-x-0"
+                    >
+                    </div>
+                </button>
+                <span
+                    class="text-sm font-medium text-muted-slate"
+                    id="billing-yearly"
+                    >Yearly <span class="text-accent text-xs font-bold ml-1"
+                        >Save 20%</span
+                    ></span
+                >
+            </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {
+                tiers.map((tier) => (
+                    <div
+                        class={`glass-card p-10 flex flex-col relative ${tier.popular ? "border-accent shadow-[0_0_40px_rgba(99,102,241,0.1)] scale-105 z-10" : ""}`}
+                    >
+                        {tier.popular && (
+                            <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-accent px-4 py-1 rounded-full text-xs font-bold uppercase tracking-widest">
+                                Most Popular
+                            </div>
+                        )}
+
+                        <div class="mb-8">
+                            <h3 class="text-xl font-bold mb-2">{tier.name}</h3>
+                            <p class="text-sm text-muted-slate h-10">
+                                {tier.description}
+                            </p>
+                        </div>
+
+                        <div class="mb-8">
+                            <span
+                                class="text-5xl font-bold pricing-value"
+                                data-monthly={tier.price.monthly}
+                                data-yearly={tier.price.yearly}
+                            >
+                                {tier.price.monthly}
+                            </span>
+                            {tier.price.monthly !== "Custom" && (
+                                <span class="text-muted-slate ml-2 billing-period">
+                                    /month
+                                </span>
+                            )}
+                        </div>
+
+                        <a
+                            href="/login"
+                            class={`w-full py-3 rounded-lg font-bold mb-10 transition-all text-center ${tier.popular ? "bg-accent-gradient hover:shadow-[0_0_20px_rgba(99,102,241,0.5)]" : "bg-white/5 border border-white/10 hover:bg-white/10"}`}
+                        >
+                            {tier.cta}
+                        </a>
+
+                        <ul class="space-y-4 mt-auto">
+                            {tier.features.map((feature) => (
+                                <li class="flex items-center gap-3 text-sm text-white/80">
+                                    <Check className="w-5 h-5 text-accent shrink-0" />
+                                    {feature}
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
+                ))
+            }
+        </div>
+    </div>
+</section>
+
+<script>
+    const toggle = document.getElementById("billing-toggle");
+    const thumb = document.getElementById("billing-thumb");
+    const monthlyLabel = document.getElementById("billing-monthly");
+    const yearlyLabel = document.getElementById("billing-yearly");
+    const prices = document.querySelectorAll(".pricing-value");
+    const periods = document.querySelectorAll(".billing-period");
+
+    let isYearly = false;
+
+    toggle?.addEventListener("click", () => {
+        isYearly = !isYearly;
+
+        // Update Toggle UI
+        if (isYearly) {
+            thumb?.classList.add("translate-x-6");
+            thumb?.classList.remove("translate-x-0");
+            yearlyLabel?.classList.add("text-white");
+            yearlyLabel?.classList.remove("text-muted-slate");
+            monthlyLabel?.classList.add("text-muted-slate");
+            monthlyLabel?.classList.remove("text-white");
+        } else {
+            thumb?.classList.remove("translate-x-6");
+            thumb?.classList.add("translate-x-0");
+            yearlyLabel?.classList.remove("text-white");
+            yearlyLabel?.classList.add("text-muted-slate");
+            monthlyLabel?.classList.remove("text-white");
+            monthlyLabel?.classList.add("text-muted-slate");
+        }
+
+        // Update Prices
+        prices.forEach((price) => {
+            const htmlPrice = price as HTMLElement;
+            const monthlyValue = htmlPrice.getAttribute("data-monthly");
+            const yearlyValue = htmlPrice.getAttribute("data-yearly");
+
+            if (isYearly && yearlyValue) {
+                htmlPrice.textContent = yearlyValue;
+            } else if (!isYearly && monthlyValue) {
+                htmlPrice.textContent = monthlyValue;
+            }
+        });
+
+        // Update Period Labels
+        periods.forEach((period) => {
+            period.textContent = isYearly ? "/year" : "/month";
+        });
+    });
+</script>

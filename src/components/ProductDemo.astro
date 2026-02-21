@@ -1,0 +1,745 @@
+<div
+    class="product-demo-container relative w-full aspect-[16/10] glass-card p-2 md:p-4 overflow-hidden group perspective-1000"
+>
+    <div
+        class="absolute inset-0 transition-transform duration-700 ease-out group-hover:scale-[1.02] group-hover:rotate-x-1 group-hover:rotate-y-1 transform-style-3d"
+    >
+        <!-- Window Header -->
+        <div
+            class="absolute top-0 left-0 w-full h-8 flex items-center px-4 gap-1.5 border-b border-white/5 bg-white/[0.02]"
+        >
+            <div class="w-2.5 h-2.5 rounded-full bg-red-500/40"></div>
+            <div class="w-2.5 h-2.5 rounded-full bg-yellow-500/40"></div>
+            <div class="w-2.5 h-2.5 rounded-full bg-green-500/40"></div>
+            <div
+                class="mx-auto text-[10px] text-white/20 font-mono uppercase tracking-[0.2em]"
+            >
+                taskflow-dashboard-v2
+            </div>
+        </div>
+
+        <!-- Dashboard Content -->
+        <svg viewBox="0 0 800 500" class="w-full h-full pt-8 fill-none">
+            <!-- Sidebar Shell -->
+            <rect
+                x="0"
+                y="32"
+                width="200"
+                height="468"
+                fill="white"
+                fill-opacity="0.01"></rect>
+            <line
+                x1="200"
+                y1="32"
+                x2="200"
+                y2="500"
+                stroke="white"
+                stroke-opacity="0.05"></line>
+
+            <!-- Sidebar Items -->
+            <g class="sidebar-items">
+                <!-- Selector -->
+                <rect
+                    x="20"
+                    y="50"
+                    width="160"
+                    height="40"
+                    rx="8"
+                    fill="white"
+                    fill-opacity="0.03"
+                    stroke="white"
+                    stroke-opacity="0.05"></rect>
+                <circle cx="45" cy="70" r="10" fill="url(#avatar-gradient)"
+                ></circle>
+                <rect
+                    x="65"
+                    y="65"
+                    width="80"
+                    height="6"
+                    rx="3"
+                    fill="white"
+                    fill-opacity="0.2"></rect>
+                <path
+                    d="M155 68 L160 73 L165 68"
+                    stroke="white"
+                    stroke-opacity="0.3"
+                    fill="none"></path>
+
+                <!-- Nav Items -->
+                <g
+                    transform="translate(20, 110)"
+                    class="hover-group cursor-pointer"
+                >
+                    <rect
+                        x="0"
+                        y="0"
+                        width="160"
+                        height="34"
+                        rx="6"
+                        fill="white"
+                        fill-opacity="0.05"></rect>
+                    <rect
+                        x="12"
+                        y="10"
+                        width="14"
+                        height="14"
+                        rx="3"
+                        fill="#6366f1"></rect>
+                    <text
+                        x="40"
+                        y="21"
+                        fill="white"
+                        font-size="11"
+                        font-weight="600">Overview</text
+                    >
+                </g>
+
+                <g
+                    transform="translate(20, 150)"
+                    class="hover-group cursor-pointer"
+                >
+                    <rect
+                        x="0"
+                        y="0"
+                        width="160"
+                        height="34"
+                        rx="6"
+                        fill="transparent"
+                        class="hover-rect"></rect>
+                    <rect
+                        x="12"
+                        y="10"
+                        width="14"
+                        height="14"
+                        rx="3"
+                        stroke="white"
+                        stroke-opacity="0.2"
+                        fill="none"></rect>
+                    <text
+                        x="40"
+                        y="21"
+                        fill="white"
+                        fill-opacity="0.4"
+                        font-size="11">Projects</text
+                    >
+                    <circle
+                        cx="145"
+                        cy="17"
+                        r="4"
+                        fill="white"
+                        fill-opacity="0.1"></circle>
+                </g>
+
+                <g
+                    transform="translate(20, 190)"
+                    class="hover-group cursor-pointer"
+                >
+                    <rect
+                        x="0"
+                        y="0"
+                        width="160"
+                        height="34"
+                        rx="6"
+                        fill="transparent"
+                        class="hover-rect"></rect>
+                    <rect
+                        x="12"
+                        y="10"
+                        width="14"
+                        height="14"
+                        rx="3"
+                        stroke="white"
+                        stroke-opacity="0.2"
+                        fill="none"></rect>
+                    <text
+                        x="40"
+                        y="21"
+                        fill="white"
+                        fill-opacity="0.4"
+                        font-size="11">Workflows</text
+                    >
+                </g>
+
+                <g
+                    transform="translate(20, 230)"
+                    class="hover-group cursor-pointer"
+                >
+                    <rect
+                        x="0"
+                        y="0"
+                        width="160"
+                        height="34"
+                        rx="6"
+                        fill="transparent"
+                        class="hover-rect"></rect>
+                    <rect
+                        x="12"
+                        y="10"
+                        width="14"
+                        height="14"
+                        rx="3"
+                        stroke="white"
+                        stroke-opacity="0.2"
+                        fill="none"></rect>
+                    <text
+                        x="40"
+                        y="21"
+                        fill="white"
+                        fill-opacity="0.4"
+                        font-size="11">Analytics</text
+                    >
+                </g>
+
+                <!-- Bottom Settings -->
+                <g
+                    transform="translate(20, 440)"
+                    class="hover-group cursor-pointer"
+                >
+                    <circle
+                        cx="19"
+                        cy="17"
+                        r="10"
+                        fill="white"
+                        fill-opacity="0.05"></circle>
+                    <text
+                        x="40"
+                        y="21"
+                        fill="white"
+                        fill-opacity="0.4"
+                        font-size="11">Settings</text
+                    >
+                </g>
+            </g>
+
+            <!-- Main Content Area -->
+            <g class="main-content">
+                <!-- Top Bar -->
+                <g class="top-bar">
+                    <!-- Search -->
+                    <rect
+                        x="220"
+                        y="52"
+                        width="300"
+                        height="36"
+                        rx="18"
+                        fill="white"
+                        fill-opacity="0.03"
+                        stroke="white"
+                        stroke-opacity="0.05"></rect>
+                    <circle
+                        cx="240"
+                        cy="70"
+                        r="6"
+                        stroke="white"
+                        stroke-opacity="0.2"
+                        fill="none"></circle>
+                    <line
+                        x1="244"
+                        y1="74"
+                        x2="248"
+                        y2="78"
+                        stroke="white"
+                        stroke-opacity="0.2"></line>
+                    <text
+                        x="260"
+                        y="74"
+                        fill="white"
+                        fill-opacity="0.15"
+                        font-size="11">Quick Search... (⌘K)</text
+                    >
+
+                    <!-- Profile Area -->
+                    <circle cx="750" cy="70" r="16" fill="url(#avatar-gradient)"
+                    ></circle>
+                    <circle
+                        cx="762"
+                        cy="80"
+                        r="5"
+                        fill="#10b981"
+                        stroke="#000"
+                        stroke-width="1.5"></circle>
+                    <!-- Green online dot -->
+                </g>
+
+                <!-- Header Title -->
+                <text
+                    x="240"
+                    y="115"
+                    fill="white"
+                    font-weight="bold"
+                    font-size="24">Dashboard</text
+                >
+                <text
+                    x="240"
+                    y="140"
+                    fill="white"
+                    fill-opacity="0.3"
+                    font-size="12"
+                    >Welcome back, developer. You have 3 pending reviews.</text
+                >
+
+                <!-- Stats Row -->
+                <g class="stats" transform="translate(30, 60)">
+                    <rect
+                        x="210"
+                        y="110"
+                        width="160"
+                        height="80"
+                        rx="12"
+                        fill="white"
+                        fill-opacity="0.03"
+                        stroke="white"
+                        stroke-opacity="0.05"></rect>
+                    <text
+                        x="230"
+                        y="140"
+                        fill="white"
+                        fill-opacity="0.4"
+                        font-size="11">Active Tasks</text
+                    >
+                    <text
+                        x="230"
+                        y="175"
+                        fill="white"
+                        font-weight="bold"
+                        font-size="28"
+                        class="counter">12</text
+                    >
+
+                    <rect
+                        x="390"
+                        y="110"
+                        width="160"
+                        height="80"
+                        rx="12"
+                        fill="white"
+                        fill-opacity="0.03"
+                        stroke="white"
+                        stroke-opacity="0.05"></rect>
+                    <text
+                        x="410"
+                        y="140"
+                        fill="white"
+                        fill-opacity="0.4"
+                        font-size="11">Team Velocity</text
+                    >
+                    <text
+                        x="410"
+                        y="175"
+                        fill="white"
+                        font-weight="bold"
+                        font-size="28"
+                        class="counter">94%</text
+                    >
+
+                    <rect
+                        x="570"
+                        y="110"
+                        width="160"
+                        height="80"
+                        rx="12"
+                        fill="white"
+                        fill-opacity="0.03"
+                        stroke="white"
+                        stroke-opacity="0.05"></rect>
+                    <text
+                        x="590"
+                        y="140"
+                        fill="white"
+                        fill-opacity="0.4"
+                        font-size="11">Sprint Goal</text
+                    >
+                    <text
+                        x="590"
+                        y="175"
+                        fill="white"
+                        font-weight="bold"
+                        font-size="28"
+                        class="counter">8/10</text
+                    >
+                </g>
+
+                <!-- Main Task Card (Animated) -->
+                <g
+                    class="task-card-main opacity-0 translate-y-8 animate-task-in"
+                    transform="translate(30, 60)"
+                >
+                    <rect
+                        x="210"
+                        y="210"
+                        width="540"
+                        height="220"
+                        rx="16"
+                        fill="white"
+                        fill-opacity="0.02"
+                        stroke="white"
+                        stroke-opacity="0.1"></rect>
+                    <rect
+                        x="230"
+                        y="235"
+                        width="200"
+                        height="8"
+                        rx="4"
+                        fill="white"
+                        fill-opacity="0.1"></rect>
+
+                    <!-- List Items -->
+                    <g class="list-item">
+                        <rect
+                            x="230"
+                            y="270"
+                            width="500"
+                            height="46"
+                            rx="8"
+                            fill="white"
+                            fill-opacity="0.03"
+                            stroke="white"
+                            stroke-opacity="0.05"></rect>
+                        <circle cx="255" cy="293" r="6" fill="#6366f1"></circle>
+                        <rect
+                            x="275"
+                            y="289"
+                            width="140"
+                            height="8"
+                            rx="4"
+                            fill="white"
+                            fill-opacity="0.2"></rect>
+                        <rect
+                            x="650"
+                            y="285"
+                            width="60"
+                            height="16"
+                            rx="8"
+                            fill="#6366f1"
+                            fill-opacity="0.2"></rect>
+                        <text
+                            x="662"
+                            y="297"
+                            fill="#818cf8"
+                            font-size="8"
+                            font-weight="bold">BUGFIX</text
+                        >
+                    </g>
+
+                    <g class="list-item-2 opacity-0 animate-list-2">
+                        <rect
+                            x="230"
+                            y="326"
+                            width="500"
+                            height="46"
+                            rx="8"
+                            fill="white"
+                            fill-opacity="0.03"
+                            stroke="white"
+                            stroke-opacity="0.05"></rect>
+                        <circle
+                            cx="255"
+                            cy="349"
+                            r="6"
+                            stroke="white"
+                            stroke-opacity="0.1"
+                            fill="none"
+                            stroke-width="1.5"></circle>
+                        <path
+                            d="M252 349 L254 351 L258 347"
+                            stroke="#10b981"
+                            stroke-width="2"
+                            class="checkmark opacity-0"
+                            fill="none"></path>
+                        <rect
+                            x="275"
+                            y="345"
+                            width="200"
+                            height="8"
+                            rx="4"
+                            fill="white"
+                            fill-opacity="0.1"></rect>
+                        <rect
+                            x="650"
+                            y="341"
+                            width="60"
+                            height="16"
+                            rx="8"
+                            fill="white"
+                            fill-opacity="0.05"></rect>
+                        <text
+                            x="665"
+                            y="353"
+                            fill="white"
+                            fill-opacity="0.3"
+                            font-size="8"
+                            font-weight="bold">FINISH</text
+                        >
+                    </g>
+
+                    <g
+                        class="list-item-3 opacity-0 animate-list-2"
+                        style="animation-delay: 1.5s;"
+                    >
+                        <rect
+                            x="230"
+                            y="382"
+                            width="500"
+                            height="46"
+                            rx="8"
+                            fill="white"
+                            fill-opacity="0.03"
+                            stroke="white"
+                            stroke-opacity="0.05"></rect>
+                        <circle
+                            cx="255"
+                            cy="405"
+                            r="6"
+                            fill="#10b981"
+                            fill-opacity="0.2"></circle>
+                        <rect
+                            x="275"
+                            y="401"
+                            width="110"
+                            height="8"
+                            rx="4"
+                            fill="white"
+                            fill-opacity="0.1"></rect>
+                    </g>
+                </g>
+
+                <!-- Floaties -->
+                <g class="floater-notif opacity-0 animate-notif">
+                    <rect
+                        x="580"
+                        y="40"
+                        width="150"
+                        height="40"
+                        rx="20"
+                        fill="#6366f1"></rect>
+                    <circle cx="600" cy="60" r="8" fill="white"></circle>
+                    <text
+                        x="618"
+                        y="64"
+                        fill="white"
+                        font-size="10"
+                        font-weight="bold">3 Tasks Ready</text
+                    >
+                </g>
+
+                <!-- User Context / Tooltips -->
+                <g class="tooltips opacity-0 animate-tooltips">
+                    <!-- Search Tooltip -->
+                    <g transform="translate(370, 18)">
+                        <rect
+                            x="0"
+                            y="0"
+                            width="120"
+                            height="24"
+                            rx="12"
+                            fill="white"></rect>
+                        <path d="M10 24 L15 30 L20 24" fill="white"></path>
+                        <text
+                            x="60"
+                            y="15"
+                            fill="#000"
+                            font-size="9"
+                            font-weight="bold"
+                            text-anchor="middle">AI COMMAND BAR</text
+                        >
+                    </g>
+
+                    <!-- Stats Tooltip -->
+                    <g transform="translate(470, 135)">
+                        <rect
+                            x="0"
+                            y="0"
+                            width="110"
+                            height="24"
+                            rx="12"
+                            fill="#10b981"></rect>
+                        <path d="M50 24 L55 30 L60 24" fill="#10b981"></path>
+                        <text
+                            x="55"
+                            y="15"
+                            fill="white"
+                            font-size="9"
+                            font-weight="bold"
+                            text-anchor="middle">LIVE METRICS</text
+                        >
+                    </g>
+                </g>
+            </g>
+        </svg>
+
+        <!-- Gradients -->
+        <defs>
+            <linearGradient
+                id="avatar-gradient"
+                x1="0%"
+                y1="0%"
+                x2="100%"
+                y2="100%"
+            >
+                <stop offset="0%" style="stop-color:#818cf8;stop-opacity:1"
+                ></stop>
+                <stop offset="100%" style="stop-color:#6366f1;stop-opacity:1"
+                ></stop>
+            </linearGradient>
+        </defs>
+    </div>
+
+    <!-- Pulse Effect in background -->
+    <div
+        class="absolute -bottom-1/2 -right-1/4 w-[150%] aspect-square bg-accent/5 blur-[120px] rounded-full -z-10 group-hover:bg-accent/10 transition-colors duration-1000"
+    >
+    </div>
+</div>
+
+<style>
+    .product-demo-container {
+        box-shadow:
+            0 0 0 1px rgba(255, 255, 255, 0.05),
+            0 20px 50px -10px rgba(0, 0, 0, 0.5);
+    }
+
+    /* Animations */
+    @keyframes taskIn {
+        from {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    @keyframes listIn {
+        from {
+            opacity: 0;
+            transform: translateX(-10px);
+        }
+        to {
+            opacity: 1;
+            transform: translateX(0);
+        }
+    }
+
+    @keyframes checkmarkDraw {
+        from {
+            stroke-dashoffset: 20;
+            opacity: 0;
+        }
+        to {
+            stroke-dashoffset: 0;
+            opacity: 1;
+        }
+    }
+
+    @keyframes progressFill {
+        from {
+            stroke-dashoffset: 188.4;
+        }
+        to {
+            stroke-dashoffset: 47.1;
+        } /* 75% of 188.4 */
+    }
+
+    @keyframes popIn {
+        0% {
+            opacity: 0;
+            transform: scale(0.8) translateY(-10px);
+        }
+        70% {
+            transform: scale(1.05);
+        }
+        100% {
+            opacity: 1;
+            transform: scale(1) translateY(0);
+        }
+    }
+
+    .animate-task-in {
+        animation: taskIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards 0.5s;
+    }
+
+    .animate-list-2 {
+        animation: listIn 0.5s ease-out forwards 1.2s;
+    }
+
+    .checkmark {
+        stroke-dasharray: 20;
+        animation: checkmarkDraw 0.4s ease-out forwards 1.7s;
+    }
+
+    .progress-path {
+        animation: progressFill 1.5s cubic-bezier(0.65, 0, 0.35, 1) forwards
+            0.8s;
+    }
+
+    .animate-notif {
+        animation: popIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards
+            2.5s;
+    }
+
+    /* Counter animation simulation (simple CSS version) */
+    .counter {
+        animation: pulseText 2s ease-in-out infinite alternate;
+    }
+
+    @keyframes pulseText {
+        from {
+            fill-opacity: 0.8;
+        }
+        to {
+            fill-opacity: 1;
+        }
+    }
+
+    .perspective-1000 {
+        perspective: 1000px;
+    }
+
+    .transform-style-3d {
+        transform-style: preserve-3d;
+    }
+
+    .rotate-x-1 {
+        transform: rotateX(1deg);
+    }
+
+    .rotate-y-1 {
+        transform: rotateY(-1deg);
+    }
+
+    /* Tooltip Animation */
+    @keyframes tooltipFade {
+        0%,
+        10% {
+            opacity: 0;
+            transform: translateY(10px);
+        }
+        20%,
+        80% {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        90%,
+        100% {
+            opacity: 0;
+            transform: translateY(-10px);
+        }
+    }
+
+    .animate-tooltips {
+        animation: tooltipFade 6s ease-in-out infinite;
+    }
+
+    .sidebar-items text {
+        pointer-events: none;
+    }
+
+    .hover-group:hover rect {
+        fill-opacity: 0.08 !important;
+    }
+
+    .hover-group:hover text {
+        fill-opacity: 1 !important;
+    }
+</style>

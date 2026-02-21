@@ -1,0 +1,62 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Navbar from "../components/Navbar.astro";
+import Footer from "../components/Footer.astro";
+import SubpageHero from "../components/SubpageHero.astro";
+---
+
+<Layout
+    title="About Us"
+    description="Learn about the mission and team behind TaskFlow."
+>
+    <Navbar />
+    <main>
+        <SubpageHero
+            title="Our Mission to Evolve Productivity"
+            subtitle="We're building the infrastructure for the future of work, one task at a time."
+        />
+
+        <section class="py-24">
+            <div class="max-w-3xl mx-auto px-6">
+                <div class="prose prose-invert max-w-none">
+                    <h2 class="text-3xl font-bold mb-6">Who we are</h2>
+                    <p class="text-muted-slate text-lg leading-relaxed mb-6">
+                        Founded in 2024, TaskFlow was born out of a simple
+                        observation: productivity tools were becoming more
+                        complex while teams were becoming more distributed.
+                    </p>
+                    <p class="text-muted-slate text-lg leading-relaxed mb-6">
+                        We believe that software should disappear, allowing you
+                        to focus on the work that matters most. Our team of
+                        designers and engineers is dedicated to building tools
+                        that are powerful, beautiful, and intuitive.
+                    </p>
+
+                    <div class="grid grid-cols-2 gap-8 my-16">
+                        <div class="glass-card p-8">
+                            <div class="text-4xl font-bold text-accent mb-2">
+                                50k+
+                            </div>
+                            <div
+                                class="text-sm text-muted-slate uppercase tracking-wider"
+                            >
+                                Active Teams
+                            </div>
+                        </div>
+                        <div class="glass-card p-8">
+                            <div class="text-4xl font-bold text-accent mb-2">
+                                99.9%
+                            </div>
+                            <div
+                                class="text-sm text-muted-slate uppercase tracking-wider"
+                            >
+                                Uptime
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <Footer />
+</Layout>

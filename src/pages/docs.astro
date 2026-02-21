@@ -1,0 +1,58 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Navbar from "../components/Navbar.astro";
+import Footer from "../components/Footer.astro";
+import SubpageHero from "../components/SubpageHero.astro";
+import { Search, Book, Code, Terminal } from "lucide-react";
+
+const categories = [
+    { title: "Getting Started", icon: Book, count: 12 },
+    { title: "API Reference", icon: Code, count: 45 },
+    { title: "CLI Tooling", icon: Terminal, count: 8 },
+];
+---
+
+<Layout
+    title="Documentation"
+    description="Comprehensive guides and references for the TaskFlow platform."
+>
+    <Navbar />
+    <main>
+        <SubpageHero
+            title="Documentation"
+            subtitle="Everything you need to integrate and master TaskFlow."
+        />
+
+        <section class="py-24">
+            <div class="max-w-6xl mx-auto px-6">
+                <div class="relative max-w-2xl mx-auto mb-20">
+                    <Search
+                        className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-muted-slate"
+                    />
+                    <input
+                        type="text"
+                        placeholder="Search documentation..."
+                        class="w-full pl-12 pr-4 py-4 bg-white/5 border border-white/10 rounded-xl focus:ring-2 focus:ring-accent/50 outline-none"
+                    />
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    {
+                        categories.map((c) => (
+                            <div class="glass-card p-10 hover:bg-white/[0.04] transition-colors cursor-pointer group">
+                                <c.icon className="w-10 h-10 text-accent mb-6 group-hover:scale-110 transition-transform" />
+                                <h3 class="text-xl font-bold mb-2">
+                                    {c.title}
+                                </h3>
+                                <p class="text-muted-slate text-sm">
+                                    {c.count} articles
+                                </p>
+                            </div>
+                        ))
+                    }
+                </div>
+            </div>
+        </section>
+    </main>
+    <Footer />
+</Layout>

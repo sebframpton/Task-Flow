@@ -1,0 +1,72 @@
+---
+import { Zap, Shield, Smartphone, BarChart3, Users, Cloud } from "lucide-react";
+
+const features = [
+    {
+        title: "Lightning Fast",
+        description:
+            "Optimized for speed with enterprise-grade infrastructure and smart caching.",
+        icon: Zap,
+    },
+    {
+        title: "Bank-Level Security",
+        description:
+            "Advanced encryption and multiple security layers to keep your data safe.",
+        icon: Shield,
+    },
+    {
+        title: "Mobile First",
+        description:
+            "Access your projects anytime, anywhere with our fully responsive mobile app.",
+        icon: Smartphone,
+    },
+    {
+        title: "Advanced Analytics",
+        description:
+            "Get deep insights into your team performance with real-time dashboards.",
+        icon: BarChart3,
+    },
+    {
+        title: "Team Collaboration",
+        description:
+            "Collaborate seamlessly with built-in chat, task sharing, and live updates.",
+        icon: Users,
+    },
+    {
+        title: "Cloud Native",
+        description:
+            "Scaling automatically with your needs, ensuring 99.9% uptime and reliability.",
+        icon: Cloud,
+    },
+];
+---
+
+<section id="features" class="py-24 relative">
+    <div class="max-w-7xl mx-auto px-6">
+        <div class="text-center max-w-3xl mx-auto mb-20">
+            <h2 class="text-3xl md:text-5xl font-bold mb-6">
+                Packed with <span class="text-gradient">Powerful Features</span>
+            </h2>
+            <p class="text-lg text-muted-slate">
+                Everything you need to manage your business efficiently in one
+                unified platform.
+            </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {
+                features.map((feature) => (
+                    <div class="glass-card p-10 group hover:bg-white/[0.08] transition-all duration-300">
+                        <div class="w-14 h-14 bg-accent/10 rounded-2xl flex items-center justify-center mb-8 border border-accent/20 group-hover:bg-accent/20 transition-colors">
+                            <feature.icon className="w-8 h-8 text-accent" />
+                        </div>
+                        <h3 class="text-xl font-bold mb-4">{feature.title}</h3>
+                        <p class="text-muted-slate leading-relaxed">
+                            {feature.description}
+                        </p>
+                    </div>
+                ))
+            }
+        </div>
+    </div>
+</section>

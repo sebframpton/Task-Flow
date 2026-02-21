@@ -1,0 +1,143 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { ArrowLeft, Github, Chrome } from "lucide-react";
+---
+
+<Layout title="Log In" description="Access your TaskFlow account.">
+    <main
+        class="min-h-screen flex items-center justify-center p-6 relative overflow-hidden"
+    >
+        <!-- Background Decorations -->
+        <div
+            class="absolute top-0 left-1/4 w-[500px] h-[500px] bg-accent/10 blur-[120px] rounded-full -z-10 animate-pulse"
+        >
+        </div>
+        <div
+            class="absolute bottom-0 right-1/4 w-[500px] h-[500px] bg-purple-500/10 blur-[120px] rounded-full -z-10 animate-pulse"
+            style="animation-delay: 1s;"
+        >
+        </div>
+
+        <div class="w-full max-w-md">
+            <a
+                href="/"
+                class="inline-flex items-center gap-2 text-muted-slate hover:text-white transition-colors mb-8 group"
+            >
+                <ArrowLeft
+                    className="w-4 h-4 group-hover:-translate-x-1 transition-transform"
+                />
+                Back to Home
+            </a>
+
+            <div class="glass-card p-8 md:p-10 relative overflow-hidden">
+                <div
+                    class="absolute top-0 left-0 w-full h-1 bg-accent-gradient"
+                >
+                </div>
+
+                <div class="text-center mb-8">
+                    <div
+                        class="w-12 h-12 bg-accent-gradient rounded-xl flex items-center justify-center mx-auto mb-4"
+                    >
+                        <span class="text-white font-bold text-2xl">TF</span>
+                    </div>
+                    <h1 class="text-3xl font-bold mb-2">Welcome Back</h1>
+                    <p class="text-muted-slate">
+                        Enter your details to access your account
+                    </p>
+                </div>
+
+                <form class="space-y-4">
+                    <div>
+                        <label
+                            for="email"
+                            class="block text-sm font-medium text-muted-slate mb-1"
+                            >Email Address</label
+                        >
+                        <input
+                            type="email"
+                            id="email"
+                            placeholder="name@company.com"
+                            class="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg focus:outline-none focus:ring-2 focus:ring-accent/50 focus:border-accent transition-all text-white"
+                        />
+                    </div>
+                    <div>
+                        <div class="flex items-center justify-between mb-1">
+                            <label
+                                for="password"
+                                class="block text-sm font-medium text-muted-slate"
+                                >Password</label
+                            >
+                            <a
+                                href="#"
+                                class="text-xs text-accent hover:underline"
+                                >Forgot password?</a
+                            >
+                        </div>
+                        <input
+                            type="password"
+                            id="password"
+                            placeholder="••••••••"
+                            class="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg focus:outline-none focus:ring-2 focus:ring-accent/50 focus:border-accent transition-all text-white"
+                        />
+                    </div>
+
+                    <button type="submit" class="btn-primary w-full py-3 mt-2">
+                        Sign In
+                    </button>
+                </form>
+
+                <div class="relative my-8">
+                    <div class="absolute inset-0 flex items-center">
+                        <div class="w-full border-t border-white/10"></div>
+                    </div>
+                    <div class="relative flex justify-center text-xs uppercase">
+                        <span class="bg-[#0A0A0B] px-2 text-muted-slate"
+                            >Or continue with</span
+                        >
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-2 gap-4">
+                    <button
+                        class="flex items-center justify-center gap-2 py-3 bg-white/5 border border-white/10 rounded-lg hover:bg-white/10 transition-colors"
+                    >
+                        <Github className="w-5 h-5" />
+                        <span class="text-sm">GitHub</span>
+                    </button>
+                    <button
+                        class="flex items-center justify-center gap-2 py-3 bg-white/5 border border-white/10 rounded-lg hover:bg-white/10 transition-colors"
+                    >
+                        <Chrome className="w-5 h-5" />
+                        <span class="text-sm">Google</span>
+                    </button>
+                </div>
+
+                <p class="text-center mt-8 text-sm text-muted-slate">
+                    Don't have an account? <a
+                        href="#pricing"
+                        class="text-accent hover:underline"
+                        >Start your free trial</a
+                    >
+                </p>
+            </div>
+        </div>
+    </main>
+</Layout>
+
+<style>
+    @keyframes pulse {
+        0%,
+        100% {
+            opacity: 0.3;
+            transform: scale(1);
+        }
+        50% {
+            opacity: 0.5;
+            transform: scale(1.1);
+        }
+    }
+    .animate-pulse {
+        animation: pulse 8s ease-in-out infinite;
+    }
+</style>
